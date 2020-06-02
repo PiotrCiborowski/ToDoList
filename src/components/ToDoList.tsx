@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react';
-import { Text } from 'react-native';
+import { Text, Button } from 'react-native';
 import styled from 'styled-components';
 import { useSelector } from 'react-redux';
 
@@ -17,8 +17,11 @@ const SingleElList = styled.View`
     margin: 0 0 20px 0;
 `;
 
-const ToDoList: FC = props => {
+const ToDoList: FC<{switchView(formView: boolean)}> = props => {
     const todoListState = useSelector<IState, IToDoListReducer>(state => state.todoList)
+    const goToForm = () => {
+        props.switchView(true);
+    }
     return (
         <Wrapper>
             {todoListState.todoList.map((elem: ISingleElementList, index: number) => 
@@ -27,6 +30,7 @@ const ToDoList: FC = props => {
                     <Text>{elem.description}</Text>
                 </SingleElList>
             )}
+            <Button title="Add new element" onPress={goToForm}/>
         </Wrapper>
     )
 };

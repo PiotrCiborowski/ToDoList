@@ -4,6 +4,9 @@ import { MaterialCommunityIcons } from 'react-native-vector-icons';
 import Home from '../screens/Home';
 import List from '../screens/List';
 import Text from '../screens/Text';
+//import { Colors } from 'react-native/Libraries/NewAppScreen';
+
+import Colors from '../constans/Colors';
 
 const Tab = createBottomTabNavigator();
 
@@ -12,8 +15,9 @@ const BottomTabs: FC = () => {
     <Tab.Navigator
         initialRouteName="Home"
         tabBarOptions={{
-          activeTintColor: '#49a7ff',
-          style: { backgroundColor: '#F2E5A9' }}}>
+          activeTintColor: Colors.dark,
+          inactiveTintColor: Colors.inactive,
+          style: { backgroundColor: Colors.medium }}}>
       <Tab.Screen 
         name="Home"
         component={Home}

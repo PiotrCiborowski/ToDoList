@@ -10,15 +10,19 @@ import ToDoList from '../../components/ToDoList';
 const List = ({navigation}) => {
     const [formView, setFormView] = useState<boolean>(false);
 
+const Main = styled.ScrollView`
+    backgroundColor: ${Colors.light};
+`;
+
 
     return (
-        <View>
+        <Main>
             {formView ? (
-                <Form />
+                <Form switchView={setFormView}/>
             ) : (
-                <ToDoList />
+                <ToDoList switchView={setFormView}/>
             )}
-        </View>
+        </Main>
     );
 };
 

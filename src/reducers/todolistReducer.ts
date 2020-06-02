@@ -6,14 +6,7 @@ export interface IToDoListReducer {
 }
 
 const defaultState = (): IToDoListReducer => ({
-    todoList: [{
-        name: '[TEST]Pierwszy',
-        description: 'Pierwszy description'
-    },
-    {
-        name: '[TEST]Drugi',
-        description: 'Drugi description'
-    }]
+    todoList: []
 });
 
 export default (state = defaultState(), action: any): IToDoListReducer => {
